@@ -327,6 +327,9 @@ button{font:inherit;cursor:pointer;color:inherit}
 .mini.flip .mini-smoke{left:auto;right:-8px}
 @keyframes smoke{0%{opacity:.8;transform:scale(.5)}100%{opacity:0;transform:translate(-14px,-8px) scale(1.6)}}
 .mini.train-s{width:120px;bottom:2px}
+.mini svg{transition:scale .45s cubic-bezier(.3,1.8,.5,1),opacity .3s}
+.mini.hide svg{scale:0;opacity:0}
+.mini.hide .mini-smoke{display:none}
 .mini.van{width:78px;transition:transform .6s cubic-bezier(.3,1.2,.5,1)}
 .mini.train-s svg{animation:none}
 .mini.train-s .mini-smoke{display:none}

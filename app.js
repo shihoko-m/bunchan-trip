@@ -120,7 +120,7 @@
       const red = $('#mini-red');
       red.classList.remove('flip');
       red.classList.add('driveoff', 'moving');
-      setTimeout(() => { red.style.transform = `translateX(${window.innerWidth + 100}px)`; }, 250);
+      red.style.transform = `translateX(${window.innerWidth + 100}px)`;
       setTimeout(() => {
         mini.classList.remove('driveoff');
         $('#mini-red').classList.remove('driveoff');
@@ -263,12 +263,14 @@
     mini.classList.add('moving');
     lastY = window.scrollY;
     mini.style.transform = `translateX(${x}px)`;
-    // ハイエースは新幹線を少し遅れて追いかける
+    // 行き（ページ上部）と帰り（ページ下部）は新幹線、真ん中（九州）はハイエースだけ
     const red = $('#mini-red');
-    const back = window.scrollY < lastYRed;
-    red.classList.toggle('flip', back);
+    const useTrain = p < 0.12 || p > 0.9;
+    mini.classList.toggle('hide', !useTrain);
+    red.classList.toggle('hide', useTrain);
+    red.classList.toggle('flip', window.scrollY < lastYRed);
     red.classList.add('moving');
-    red.style.transform = `translateX(${back ? x + 130 : x - 88}px)`;
+    red.style.transform = `translateX(${x + 20}px)`;
     lastYRed = window.scrollY;
     clearTimeout(stopTimer);
     stopTimer = setTimeout(() => { mini.classList.remove('moving'); red.classList.remove('moving'); }, 200);
