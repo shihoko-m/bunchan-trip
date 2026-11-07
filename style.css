@@ -126,7 +126,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .cd-row b{font-family:var(--head);font-weight:400;font-size:clamp(26px,7vw,36px);line-height:1.1;color:var(--navy)}
 .cd-row span{font-size:11px;font-weight:800}
 .countdown.started .cd-label{color:var(--red)}
-.ready .cracker{position:absolute;right:16px;bottom:18px;border:var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;font-size:22px;box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;gap:6px;transition:.15s;z-index:2}
+.cracker{position:relative;margin-top:14px;border:var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;font-size:22px;box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;gap:6px;transition:.15s;z-index:2}
 .cracker span{font-size:12px;font-weight:800}
 .cracker:active{transform:scale(.9)}
 @media (max-width:600px){.st-1{left:-72px;top:-14px}.st-2{right:-76px;top:-14px}}
