@@ -8,14 +8,14 @@
   const DEPART = new Date('2026-11-28T06:25:00+09:00');
 
   const MEMBERS = [
-    { name: 'オオニシタク', img: 'img/members/taku.jpg', color: '#E63B2E' },
-    { name: 'マリナ', img: 'img/members/marina.jpg', color: '#FF8FB1' },
-    { name: 'ハタイ', img: 'img/members/hatai.jpg', color: '#26357A' },
-    { name: 'ユウコ', img: 'img/members/yuko.jpg', color: '#FFC93C' },
-    { name: 'ノブ', img: 'img/members/nobu.jpg', color: '#1F5E4A', role: 'レンタカー手配', comment: 'ハイエースを借りてくれた！<br>赤ミニの整備士でもある' },
-    { name: 'マユミ', img: 'img/members/mayumi.jpg', color: '#C8102E', role: '赤ミニのオーナー', comment: 'ヒョウ柄ルーフの<br>赤いミニに乗ってます！' },
-    { name: 'アツシ', img: 'img/members/atsushi.jpg', color: '#2BB3A3' },
-    { name: 'シホコ', img: 'img/members/shihoko.jpg', color: '#FF7A3D' },
+    { name: 'オオニシタク', img: 'img/members/taku.jpg', color: '#E63B2E', role: 'こだわり強め、みかんはお任せ。', comment: 'ケンタロウが大好きなBECHEREEのこだわりオーナー。マリナにみかんの皮をむいてもらうのが日課です。' },
+    { name: 'マリナ', img: 'img/members/marina.jpg', color: '#FF8FB1', role: 'チャキチャキ、ときどきうっかり。', comment: 'てきぱき動いて、たまにポロッと抜けている。そんなマリナはただいま新米ママ奮闘中。' },
+    { name: 'ユウコ', img: 'img/members/yuko.jpg', color: '#FFC93C', role: 'ふわっと登場、実は最強。', comment: '金沢在住のフッ軽女子。ふんわりした雰囲気に守ってあげたくなるけれど、いざというとき一番強いのはたぶんこの人。' },
+    { name: 'アツシ', img: 'img/members/atsushi.jpg', color: '#2BB3A3', role: '静かに、しっかり、聞いてます。', comment: '自分から前に出てしゃべることは少ないけれど、人の話はよく聞いている。今日も自分のペースでいくおじさん。' },
+    { name: 'マユミ', img: 'img/members/mayumi.jpg', color: '#C8102E', role: '山口のドン、初対面でもう友達。', comment: '持ち前のコミュ力で、誰とでもあっという間に打ち解ける。気づけばみんな、マユミの友達。' },
+    { name: 'ノブ', img: 'img/members/nobu.jpg', color: '#1F5E4A', role: 'やさしさ、即行動。', comment: '見た目どおりのやさしさで、困っている人にすぐ気づく。気づいたらもう動いている、頼れるおじさん。' },
+    { name: 'ハタイ', img: 'img/members/hatai.jpg', color: '#26357A', role: '紳士の顔で、ニヤリ。', comment: '見た目は紳士。人が怒っているのを見ると、ちょっと楽しくなってしまう変わり者。' },
+    { name: 'シホコ', img: 'img/members/shihoko.jpg', color: '#FF7A3D', role: '控えめです。そういうことにして。', comment: 'つい口を出して、おばちゃんキャラに見られがち。本人いわく、人見知りで控えめです。' },
   ];
 
   const CHECKS = [
@@ -159,7 +159,8 @@
             <div class="member-no">MEMBER ${String(i + 1).padStart(2, '0')}</div>
             <div class="member-name">${m.name}</div>
           </div>
-          <div class="member-face member-back">
+          <div class="member-face member-back" style="--c:${m.color}">
+            <div class="member-no">${m.name}</div>
             <div class="role">${m.role || 'ひとこと'}</div>
             <p>${m.comment || 'ぶんちゃん開店<br>おめでとう！'}</p>
           </div>
