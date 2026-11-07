@@ -123,6 +123,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .hw-tag{position:relative;z-index:2;margin-top:-.08em;writing-mode:vertical-rl;background:#fff;border:2px solid #221E1A;padding:.06em .02em;font-family:var(--body);font-size:.13em;line-height:1.2;-webkit-text-stroke:0;text-shadow:none;color:#221E1A;display:flex;align-items:center;gap:.4em}
 .hw-tag b{font-family:var(--head);font-weight:400;color:#E63B2E;font-size:1.25em;letter-spacing:.1em}
 .hw-tag small{font-size:.8em;font-weight:800}
+.hw-short{display:none}
 .hw-legs{position:absolute;top:.85em;width:80%;height:2.6em;z-index:1}
 .hw-rib1{animation:ribbon 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
 .hw-rib2{animation:ribbon 2.2s ease-in-out infinite reverse;transform-box:fill-box;transform-origin:top center}
@@ -156,7 +157,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .ready .cracker{position:absolute;right:16px;bottom:18px;border:var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;font-size:22px;box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;gap:6px;transition:.15s;z-index:2}
 .cracker span{font-size:12px;font-weight:800}
 .cracker:active{transform:scale(.9)}
-@media (max-width:600px){.st-1{left:-72px;top:-14px}.st-2{right:-76px;top:-14px}.hanawa{width:1.4em;top:-.5em}.hanawa-l{margin-right:-.18em}.hanawa-r{margin-left:-.18em}.hw-tag{font-size:.15em}}
+@media (max-width:600px){.st-1{left:-72px;top:-14px}.st-2{right:-76px;top:-14px}.hanawa{width:.98em;top:-.3em}.hanawa-l{margin-right:.04em}.hanawa-r{margin-left:.04em}.hw-tag{font-size:.15em;padding:.1em .02em}.hw-tag small,.hw-long{display:none}.hw-short{display:inline!important}.hw-legs{height:1.9em;top:.7em}}
 /* marquee */
 .marquee{background:var(--red);color:#fff;border-block:var(--line);overflow:hidden;padding:10px 0;transform:rotate(-1.5deg);margin:-10px -10px 0;position:relative;z-index:3}
 .marquee-track{display:flex;gap:28px;width:max-content;animation:marq 22s linear infinite;font-family:var(--head);font-size:20px;white-space:nowrap}
