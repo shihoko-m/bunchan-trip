@@ -12,7 +12,7 @@
     { name: 'マリナ', color: '#FF8FB1' },
     { name: 'ハタイ', color: '#26357A' },
     { name: 'ユウコ', color: '#FFC93C' },
-    { name: 'ノブ', color: '#1F5E4A', role: 'レンタカー手配🚐', comment: 'ハイエースを借りてくれた！<br>赤ミニの整備士でもある🔧' },
+    { name: 'ノブ', color: '#1F5E4A', role: 'レンタカー手配<svg class="ico-van" viewBox="0 0 130 70" aria-label="ハイエース" role="img"><path d="M8 14 q0 -8 8 -8 h82 q8 0 12 6 l12 20 q4 6 4 12 v10 q0 4 -4 4 H12 q-4 0 -4 -4z" fill="#1c1c1f" stroke="#000" stroke-width="3"/><path d="M100 12 l14 22 H100z" fill="#3c4a5c"/><g fill="#3c4a5c"><rect x="14" y="12" width="18" height="18" rx="3"/><rect x="36" y="12" width="18" height="18" rx="3"/><rect x="58" y="12" width="18" height="18" rx="3"/><rect x="80" y="12" width="16" height="18" rx="3"/></g><rect x="118" y="44" width="8" height="5" rx="1" fill="#fff3b0"/><circle cx="30" cy="60" r="9" fill="#111"/><circle cx="30" cy="60" r="4.5" fill="#d0d0d0"/><circle cx="104" cy="60" r="9" fill="#111"/><circle cx="104" cy="60" r="4.5" fill="#d0d0d0"/></svg>', comment: 'ハイエースを借りてくれた！<br>赤ミニの整備士でもある🔧' },
     { name: 'マユミ', color: '#C8102E', role: '赤ミニのオーナー🐆', comment: 'ヒョウ柄ルーフの<br>赤いミニに乗ってます！' },
     { name: 'アツシ', color: '#2BB3A3' },
     { name: 'シホコ', color: '#FF7A3D' },
