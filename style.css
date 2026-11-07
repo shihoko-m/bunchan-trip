@@ -344,3 +344,4 @@ button{font:inherit;cursor:pointer;color:inherit}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .pop-char{opacity:1;transform:none}
 }
+.must{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:8px;padding:0 8px;transform:rotate(-2deg);box-shadow:2px 2px 0 var(--ink);animation:floaty 2.4s ease-in-out infinite}
