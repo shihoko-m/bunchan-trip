@@ -372,3 +372,4 @@ body.menu-open{overflow:hidden}
 .mi-t small{display:block;font-family:var(--body);font-weight:800;font-size:11px;letter-spacing:.2em;opacity:.6}
 .mi-go{width:30px;height:30px;flex:none;border-radius:50%;background:var(--ink);position:relative}
 .mi-go::after{content:"";position:absolute;left:11px;top:9px;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.yuko{display:inline-block;margin-top:6px;font-weight:800;background:#FFD9E6;border:2px solid var(--ink);border-radius:10px;padding:2px 10px;transform:rotate(-1deg)}
