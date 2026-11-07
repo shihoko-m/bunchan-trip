@@ -116,11 +116,17 @@
       mini.classList.remove('flip');
       mini.classList.add('driveoff', 'moving');
       mini.style.transform = `translateX(${window.innerWidth + 100}px)`;
+      const red = $('#mini-red');
+      red.classList.remove('flip');
+      red.classList.add('driveoff', 'moving');
+      setTimeout(() => { red.style.transform = `translateX(${window.innerWidth + 100}px)`; }, 250);
       setTimeout(() => {
         mini.classList.remove('driveoff');
+        $('#mini-red').classList.remove('driveoff');
         mini.style.transform = 'translateX(-100px)';
+        $('#mini-red').style.transform = 'translateX(-180px)';
         requestAnimationFrame(() => setTimeout(updateMini, 50));
-      }, 1600);
+      }, 1900);
     });
   }
 
@@ -245,7 +251,7 @@
   }
 
   /* スクロール量に合わせて下の道路をミニが走る */
-  let lastY = 0, stopTimer;
+  let lastY = 0, lastYRed = 0, stopTimer;
   function updateMini() {
     const mini = $('#mini');
     if (mini.classList.contains('driveoff')) return;
@@ -256,8 +262,15 @@
     mini.classList.add('moving');
     lastY = window.scrollY;
     mini.style.transform = `translateX(${x}px)`;
+    // 赤ミニは少し遅れて後ろを追いかける
+    const red = $('#mini-red');
+    const back = window.scrollY < lastYRed;
+    red.classList.toggle('flip', back);
+    red.classList.add('moving');
+    red.style.transform = `translateX(${back ? x + 76 : x - 76}px)`;
+    lastYRed = window.scrollY;
     clearTimeout(stopTimer);
-    stopTimer = setTimeout(() => mini.classList.remove('moving'), 200);
+    stopTimer = setTimeout(() => { mini.classList.remove('moving'); red.classList.remove('moving'); }, 200);
   }
   function initMini() {
     window.addEventListener('scroll', updateMini, { passive: true });

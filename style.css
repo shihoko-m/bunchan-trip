@@ -235,11 +235,12 @@ button{font:inherit;cursor:pointer;color:inherit}
 .badge-open{position:absolute;right:-20px;top:-6px;width:84px;height:84px;display:grid;place-items:center;text-align:center;line-height:1.1;font-family:var(--head);font-size:15px;background:var(--yellow);border:var(--line);clip-path:polygon(50% 0,61% 13%,77% 6%,79% 23%,95% 25%,88% 40%,100% 50%,88% 60%,95% 75%,79% 77%,77% 94%,61% 87%,50% 100%,39% 87%,23% 94%,21% 77%,5% 75%,12% 60%,0 50%,12% 40%,5% 25%,21% 23%,23% 6%,39% 13%);animation:spin 8s linear infinite}
 .polaroids{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
 .polaroid{background:#fff;padding:10px 10px 6px;border:var(--line);box-shadow:var(--shadow);width:min(340px,86vw);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
-.polaroid.p1{transform:rotate(-4deg)}.polaroid.p2{transform:rotate(3deg)}
+.polaroid.p1{transform:rotate(-4deg)}.polaroid.p2{transform:rotate(3deg)}.polaroid.p3{transform:rotate(-2deg)}
 .polaroid.reveal{opacity:0}
 .polaroid.reveal.in{opacity:1}
 .polaroid.p1.reveal:not(.in){transform:rotate(-20deg) translateY(60px)}
 .polaroid.p2.reveal:not(.in){transform:rotate(20deg) translateY(60px)}
+.polaroid.p3.reveal:not(.in){transform:rotate(-15deg) translateY(60px)}
 .polaroid:hover{transform:rotate(0) scale(1.05)!important;z-index:2}
 .polaroid img{aspect-ratio:4/3;object-fit:cover;width:100%}
 .polaroid figcaption{font-weight:800;text-align:center;padding-top:6px;font-size:14px}
@@ -284,6 +285,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .mini.moving .mini-smoke{animation:smoke .5s infinite}
 .mini.flip .mini-smoke{left:auto;right:-8px}
 @keyframes smoke{0%{opacity:.8;transform:scale(.5)}100%{opacity:0;transform:translate(-14px,-8px) scale(1.6)}}
+.mini-red{transition:transform .6s cubic-bezier(.3,1.2,.5,1)}
 .mini.driveoff{transition:transform 1.4s cubic-bezier(.6,-.3,.8,.6)!important}
 
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:400;width:100%;height:100%}
