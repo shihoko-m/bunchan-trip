@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>祝開店！ぶんちゃん突撃旅行のしおり</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+<!-- ===== ローディング ===== -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-bowl">
+    <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
+    <img src="img/logo.png" alt="">
+  </div>
+  <p class="loader-text">しおり 準備中<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+</div>
+
+<!-- ===== ログイン（暖簾） ===== -->
+<div id="gate">
+  <div class="noren noren-l"><span>大衆</span></div>
+  <div class="noren noren-r"><span>食堂</span></div>
+  <form id="login" class="gate-card" autocomplete="on">
+    <img class="gate-logo" src="img/logo.png" alt="大衆食堂ぶんちゃん">
+    <p class="gate-lead">合言葉を言うてから入ってや！</p>
+    <label>ID<input id="uid" name="username" autocomplete="username" required></label>
+    <label>PASS<input id="pw" name="password" type="password" autocomplete="current-password" required></label>
+    <label class="remember"><input type="checkbox" id="remember" checked><span class="box"></span>ID/PASSを保存する</label>
+    <button type="submit" class="btn-pop">のれんをくぐる！</button>
+    <p id="gate-msg" role="alert"></p>
+  </form>
+</div>
+
+<!-- ===== 本編 ===== -->
+<div id="app" hidden>
+
+  <header class="topbar">
+    <a href="#top" class="topbar-logo"><img src="img/logo.png" alt="">ぶんちゃん突撃旅行</a>
+    <nav class="topnav">
+      <a href="#about">旅の概要</a>
+      <a href="#members">メンバー</a>
+      <a href="#shinkansen">新幹線</a>
+      <a href="#schedule">スケジュール</a>
+      <a href="#bunchan">ぶんちゃん</a>
+      <a href="#beppu">別府</a>
+      <a href="#check">持ち物</a>
+    </nav>
+    <button id="logout" class="logout" title="ログアウト">🔒</button>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="hero">
+    <div class="sunburst"></div>
+    <div class="flower flower-l" aria-hidden="true"><div class="flower-head"><span>祝</span></div><div class="flower-stand"></div></div>
+    <div class="flower flower-r" aria-hidden="true"><div class="flower-head"><span>祝</span></div><div class="flower-stand"></div></div>
+
+    <div class="hero-inner">
+      <p class="hero-date">2026.11.28<small>土</small> → 11.29<small>日</small></p>
+      <h1 class="hero-title">
+        <span class="pop-char">祝</span><span class="pop-char">開</span><span class="pop-char">店</span><span class="pop-char">！</span>
+      </h1>
+      <div class="hero-logo-wrap">
+        <img class="hero-logo" src="img/logo.png" alt="大衆食堂ぶんちゃん">
+        <span class="sticker st-1">突撃！</span>
+        <span class="sticker st-2">8人で<br>行くで〜</span>
+      </div>
+      <p class="hero-sub">大衆食堂ぶんちゃん<br><b>突撃旅行のしおり</b></p>
+
+      <div class="countdown" id="countdown">
+        <p class="cd-label">出発まであと</p>
+        <div class="cd-row">
+          <div><b id="cd-d">--</b><span>日</span></div>
+          <div><b id="cd-h">--</b><span>時間</span></div>
+          <div><b id="cd-m">--</b><span>分</span></div>
+          <div><b id="cd-s">--</b><span>秒</span></div>
+        </div>
+      </div>
+    </div>
+    <button class="cracker" id="cracker" aria-label="クラッカーを鳴らす">🎉<span>タップでお祝い！</span></button>
+  </section>
+
+  <div class="marquee"><div class="marquee-track">
+    <span>祝開店！大衆食堂ぶんちゃん</span><span>★</span><span>BUNCHAN TOTSUGEKI TRIP 2026</span><span>★</span><span>小倉 → ぶんちゃん → 別府</span><span>★</span>
+    <span>祝開店！大衆食堂ぶんちゃん</span><span>★</span><span>BUNCHAN TOTSUGEKI TRIP 2026</span><span>★</span><span>小倉 → ぶんちゃん → 別府</span><span>★</span>
+  </div></div>
+
+  <!-- ABOUT -->
+  <section id="about" class="sec">
+    <h2 class="sec-title"><span class="en">ABOUT</span>旅の概要</h2>
+    <div class="about-grid">
+      <div class="card reveal"><div class="card-ico">📅</div><h3>日程</h3><p><b>11/28（土）〜 11/29（日）</b><br>1泊2日</p></div>
+      <div class="card reveal"><div class="card-ico">🍚</div><h3>目的地</h3><p><b>大衆食堂ぶんちゃん</b><br>開店祝いに突撃！</p></div>
+      <div class="card reveal"><div class="card-ico">♨️</div><h3>宿泊地</h3><p><b>別府</b><br>温泉でまったり</p></div>
+      <div class="card reveal"><div class="card-ico">🚄</div><h3>移動</h3><p><b>新幹線</b><br>新大阪 ⇄ 小倉</p></div>
+    </div>
+  </section>
+
+  <!-- MEMBERS -->
+  <section id="members" class="sec sec-dots">
+    <h2 class="sec-title"><span class="en">MEMBERS</span>突撃隊メンバー</h2>
+    <p class="sec-note">カードをタップすると裏返るよ！</p>
+    <div class="members" id="member-list"></div>
+  </section>
+
+  <!-- SHINKANSEN -->
+  <section id="shinkansen" class="sec sec-navy">
+    <h2 class="sec-title light"><span class="en">SHINKANSEN</span>新幹線で行くで！</h2>
+
+    <div class="rail" aria-hidden="true">
+      <div class="train" id="train">
+        <svg viewBox="0 0 520 90" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 22 h330 q120 0 160 50 q4 8 -6 10 H20 q-10 0 -10 -10 V32 q0 -10 10 -10z" fill="#EEF4F8" stroke="#1d2a5c" stroke-width="3"/>
+          <path d="M430 30 q40 6 66 34 h-56 q-12 0 -14 -12z" fill="#1d2a5c"/>
+          <rect x="10" y="58" width="496" height="7" fill="#22336e"/>
+          <rect x="10" y="66" width="496" height="2.5" fill="#d4a845"/>
+          <g fill="#3b4d8a">
+            <rect x="40" y="34" width="26" height="14" rx="3"/><rect x="76" y="34" width="26" height="14" rx="3"/><rect x="112" y="34" width="26" height="14" rx="3"/><rect x="148" y="34" width="26" height="14" rx="3"/><rect x="184" y="34" width="26" height="14" rx="3"/><rect x="220" y="34" width="26" height="14" rx="3"/><rect x="256" y="34" width="26" height="14" rx="3"/><rect x="292" y="34" width="26" height="14" rx="3"/><rect x="328" y="34" width="26" height="14" rx="3"/><rect x="364" y="34" width="26" height="14" rx="3"/>
+          </g>
+          <text x="210" y="56" font-size="9" fill="#1d2a5c" font-family="sans-serif" font-weight="bold">さくら</text>
+          <circle cx="60" cy="84" r="5" fill="#333"/><circle cx="80" cy="84" r="5" fill="#333"/><circle cx="400" cy="84" r="5" fill="#333"/><circle cx="420" cy="84" r="5" fill="#333"/>
+        </svg>
+      </div>
+      <div class="rail-line"></div>
+      <div class="petals" id="petals"></div>
+    </div>
+
+    <div class="trains">
+      <article class="ticket reveal">
+        <div class="ticket-head go">行き<small>11/28（土）</small></div>
+        <div class="ticket-name">🌸 さくら741号 <small>鹿児島中央行</small></div>
+        <div class="ticket-route">
+          <div><b>6:25</b><span>新大阪 発</span></div>
+          <div class="arrow">━━━▶<small>2時間23分</small></div>
+          <div><b>8:48</b><span>小倉 着</span></div>
+        </div>
+        <p class="ticket-note">⏰ 遅れたら置いていくで！早めに集合！</p>
+      </article>
+      <article class="ticket reveal">
+        <div class="ticket-head back">帰り<small>11/29（日）</small></div>
+        <div class="ticket-name">⚡ のぞみ104号 <small>東京行</small></div>
+        <div class="ticket-route">
+          <div><b>16:23</b><span>小倉 発</span></div>
+          <div class="arrow">━━━▶<small>2時間14分</small></div>
+          <div><b>18:37</b><span>新大阪 着</span></div>
+        </div>
+        <p class="ticket-note">🍱 お土産は乗る前に買っとこ！</p>
+      </article>
+    </div>
+
+    <div class="trivia reveal">
+      <h3>🚄 豆知識：「さくら」N700系7000番台ってこんな車両</h3>
+      <ul>
+        <li><b>最高速度</b>　山陽区間 300km/h ／ 九州区間 260km/h</li>
+        <li><b>8両編成・全車モーター付き</b>　九州新幹線の急な坂（35‰）を登るため！</li>
+        <li><b>ボディの色</b>　陶磁器をイメージした「白藍（しらあい）」に「濃藍（こいあい）」と金色のライン</li>
+        <li><b>座席</b>　指定席は2＋2列のゆったりシート。木目をあしらった「和」の車内</li>
+        <li><b>列車名</b>　「さくら」は一般公募で決まった名前</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" class="sec">
+    <h2 class="sec-title"><span class="en">SCHEDULE</span>スケジュール</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" data-day="1" role="tab">DAY 1<small>11/28 土</small></button>
+      <button class="tab" data-day="2" role="tab">DAY 2<small>11/29 日</small></button>
+    </div>
+
+    <div class="timeline is-active" data-day="1">
+      <div class="tl-line"><div class="tl-fill"></div></div>
+      <div class="tl-item"><time>6:00</time><div class="tl-body"><h4>新大阪駅 集合</h4><p>集合場所は決まり次第お知らせ！<span class="tbd">要確認</span></p></div></div>
+      <div class="tl-item hl"><time>6:25</time><div class="tl-body"><h4>🌸 さくら741号 出発！</h4><p>新大阪 → 小倉。車内で朝ごはん🍙</p></div></div>
+      <div class="tl-item"><time>8:48</time><div class="tl-body"><h4>小倉駅 到着</h4><p>九州上陸！</p></div></div>
+      <div class="tl-item main"><time>??:??</time><div class="tl-body"><h4>🍚 大衆食堂ぶんちゃん 突撃！！</h4><p>開店のお祝いに、みんなで押しかけるで〜！<span class="tbd">時間・移動手段 要確認</span></p></div></div>
+      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>別府へ移動</h4><p><span class="tbd">要確認</span></p></div></div>
+      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>♨️ 別府 チェックイン</h4><p>温泉 → 宴会 → 夜ふかし🌙<span class="tbd">宿名 要確認</span></p></div></div>
+    </div>
+
+    <div class="timeline" data-day="2">
+      <div class="tl-line"><div class="tl-fill"></div></div>
+      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>朝風呂 &amp; 朝ごはん</h4><p>チェックアウトに遅れんように！</p></div></div>
+      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>別府観光</h4><p>地獄めぐり？温泉はしご？<span class="tbd">要確認</span></p></div></div>
+      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>小倉へ移動</h4><p><span class="tbd">要確認</span></p></div></div>
+      <div class="tl-item hl"><time>16:23</time><div class="tl-body"><h4>⚡ のぞみ104号 小倉発</h4><p>九州よ、また来るで！</p></div></div>
+      <div class="tl-item"><time>18:37</time><div class="tl-body"><h4>新大阪 到着・解散</h4><p>おつかれさまでした〜！</p></div></div>
+    </div>
+  </section>
+
+  <!-- BUNCHAN -->
+  <section id="bunchan" class="sec sec-red">
+    <h2 class="sec-title light"><span class="en">BUNCHAN</span>大衆食堂ぶんちゃん</h2>
+    <div class="bunchan">
+      <div class="bunchan-logo reveal">
+        <img src="img/logo.png" alt="大衆食堂ぶんちゃん ロゴ">
+        <span class="badge-open">NEW<br>OPEN!</span>
+      </div>
+      <div class="polaroids">
+        <figure class="polaroid p1 reveal"><img src="img/photo-mini-1-crop.jpg" alt="クラシックミニと記念撮影"><figcaption>クラシックミニと記念撮影</figcaption></figure>
+        <figure class="polaroid p2 reveal"><img src="img/photo-mini-2-crop.jpg" alt="深緑のクラシックミニ"><figcaption>深緑のミニ、かっこええ！</figcaption></figure>
+      </div>
+      <div class="info-card reveal">
+        <h3>お店の情報</h3>
+        <dl>
+          <dt>住所</dt><dd><span class="tbd">要確認</span></dd>
+          <dt>営業時間</dt><dd><span class="tbd">要確認</span></dd>
+          <dt>おすすめ</dt><dd><span class="tbd">要確認</span></dd>
+        </dl>
+        <p class="note">🎁 開店祝いの段取りもここに書きます</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEPPU -->
+  <section id="beppu" class="sec sec-onsen">
+    <div class="yuge" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <h2 class="sec-title"><span class="en">BEPPU</span>別府でまったり ♨️</h2>
+    <div class="about-grid">
+      <div class="card reveal"><div class="card-ico">🏨</div><h3>お宿</h3><p><span class="tbd">宿名・住所 要確認</span></p></div>
+      <div class="card reveal"><div class="card-ico">🔑</div><h3>チェックイン</h3><p><span class="tbd">要確認</span></p></div>
+      <div class="card reveal"><div class="card-ico">♨️</div><h3>温泉</h3><p>別府は源泉数・湧出量ともに日本一の温泉地！</p></div>
+      <div class="card reveal"><div class="card-ico">🍻</div><h3>夜ごはん</h3><p><span class="tbd">要確認</span></p></div>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="check" class="sec sec-dots">
+    <h2 class="sec-title"><span class="en">CHECKLIST</span>持ち物チェック</h2>
+    <p class="sec-note">タップでチェック！ 全部そろったら…？（この端末に保存されます）</p>
+    <div class="progress"><div class="progress-bar" id="check-bar"></div><span id="check-count">0 / 0</span></div>
+    <ul class="checklist" id="checklist"></ul>
+  </section>
+
+  <footer class="footer">
+    <img src="img/logo.png" alt="" class="footer-logo">
+    <p>祝開店！大衆食堂ぶんちゃん 突撃旅行 2026</p>
+    <button class="btn-pop" id="ittekimasu">いってきます！</button>
+  </footer>
+
+  <!-- スクロールで走るミニ -->
+  <div class="road" aria-hidden="true">
+    <div class="mini" id="mini">
+      <svg viewBox="0 0 120 64" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 38 q0 -8 8 -9 l12 -1 l8 -14 q3 -4 8 -4 h34 q5 0 8 4 l9 14 l6 1 q8 1 8 9 v8 q0 4 -4 4 H18 q-4 0 -4 -4z" fill="#1f5e4a" stroke="#123c2f" stroke-width="2"/>
+        <path d="M42 14 h46 q4 0 6 3 l7 11 H36 l6 -11 q1 -3 0 -3z" fill="#f4efe1"/>
+        <path d="M45 17 h18 v10 H39z M67 17 h19 l6 10 H67z" fill="#9fd3e6"/>
+        <rect x="14" y="40" width="98" height="3" fill="#d9d9d9"/>
+        <circle cx="105" cy="36" r="4" fill="#fff3b0" stroke="#999"/>
+        <circle cx="34" cy="50" r="9" fill="#222"/><circle cx="34" cy="50" r="4" fill="#bbb"/>
+        <circle cx="94" cy="50" r="9" fill="#222"/><circle cx="94" cy="50" r="4" fill="#bbb"/>
+      </svg>
+      <span class="mini-smoke"></span>
+    </div>
+  </div>
+</div>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<script src="app.js"></script>
+</body>
+</html>
