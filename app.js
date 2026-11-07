@@ -8,14 +8,14 @@
   const DEPART = new Date('2026-11-28T06:25:00+09:00');
 
   const MEMBERS = [
-    { name: 'オオニシタク', color: '#E63B2E' },
-    { name: 'マリナ', color: '#FF8FB1' },
-    { name: 'ハタイ', color: '#26357A' },
-    { name: 'ユウコ', color: '#FFC93C' },
-    { name: 'ノブ', color: '#1F5E4A', role: 'レンタカー手配', comment: 'ハイエースを借りてくれた！<br>赤ミニの整備士でもある' },
-    { name: 'マユミ', color: '#C8102E', role: '赤ミニのオーナー', comment: 'ヒョウ柄ルーフの<br>赤いミニに乗ってます！' },
-    { name: 'アツシ', color: '#2BB3A3' },
-    { name: 'シホコ', color: '#FF7A3D' },
+    { name: 'オオニシタク', img: 'img/members/taku.jpg', color: '#E63B2E' },
+    { name: 'マリナ', img: 'img/members/marina.jpg', color: '#FF8FB1' },
+    { name: 'ハタイ', img: 'img/members/hatai.jpg', color: '#26357A' },
+    { name: 'ユウコ', img: 'img/members/yuko.jpg', color: '#FFC93C' },
+    { name: 'ノブ', img: 'img/members/nobu.jpg', color: '#1F5E4A', role: 'レンタカー手配', comment: 'ハイエースを借りてくれた！<br>赤ミニの整備士でもある' },
+    { name: 'マユミ', img: 'img/members/mayumi.jpg', color: '#C8102E', role: '赤ミニのオーナー', comment: 'ヒョウ柄ルーフの<br>赤いミニに乗ってます！' },
+    { name: 'アツシ', img: 'img/members/atsushi.jpg', color: '#2BB3A3' },
+    { name: 'シホコ', img: 'img/members/shihoko.jpg', color: '#FF7A3D' },
   ];
 
   const CHECKS = [
@@ -155,7 +155,7 @@
       b.innerHTML = `
         <div class="member-inner">
           <div class="member-face">
-            <div class="avatar" style="background:${m.color}">${m.img ? `<img src="${m.img}" alt="">` : m.name[0]}</div>
+            <div class="avatar" style="background:${m.color};--c:${m.color}">${m.img ? `<img src="${m.img}" alt="">` : m.name[0]}</div>
             <div class="member-no">MEMBER ${String(i + 1).padStart(2, '0')}</div>
             <div class="member-name">${m.name}</div>
           </div>
