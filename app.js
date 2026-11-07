@@ -12,16 +12,16 @@
     { name: 'マリナ', color: '#FF8FB1' },
     { name: 'ハタイ', color: '#26357A' },
     { name: 'ユウコ', color: '#FFC93C' },
-    { name: 'ノブ', color: '#1F5E4A', role: 'レンタカー手配<svg class="ico-van" viewBox="0 0 130 70" aria-label="ハイエース" role="img"><path d="M8 14 q0 -8 8 -8 h82 q8 0 12 6 l12 20 q4 6 4 12 v10 q0 4 -4 4 H12 q-4 0 -4 -4z" fill="#1c1c1f" stroke="#000" stroke-width="3"/><path d="M100 12 l14 22 H100z" fill="#3c4a5c"/><g fill="#3c4a5c"><rect x="14" y="12" width="18" height="18" rx="3"/><rect x="36" y="12" width="18" height="18" rx="3"/><rect x="58" y="12" width="18" height="18" rx="3"/><rect x="80" y="12" width="16" height="18" rx="3"/></g><rect x="118" y="44" width="8" height="5" rx="1" fill="#fff3b0"/><circle cx="30" cy="60" r="9" fill="#111"/><circle cx="30" cy="60" r="4.5" fill="#d0d0d0"/><circle cx="104" cy="60" r="9" fill="#111"/><circle cx="104" cy="60" r="4.5" fill="#d0d0d0"/></svg>', comment: 'ハイエースを借りてくれた！<br>赤ミニの整備士でもある🔧' },
-    { name: 'マユミ', color: '#C8102E', role: '赤ミニのオーナー🐆', comment: 'ヒョウ柄ルーフの<br>赤いミニに乗ってます！' },
+    { name: 'ノブ', color: '#1F5E4A', role: 'レンタカー手配', comment: 'ハイエースを借りてくれた！<br>赤ミニの整備士でもある' },
+    { name: 'マユミ', color: '#C8102E', role: '赤ミニのオーナー', comment: 'ヒョウ柄ルーフの<br>赤いミニに乗ってます！' },
     { name: 'アツシ', color: '#2BB3A3' },
     { name: 'シホコ', color: '#FF7A3D' },
   ];
 
   const CHECKS = [
     '新幹線のきっぷ / スマホ', '財布・現金', '身分証', 'スマホ充電器・モバイルバッテリー',
-    '着替え（1泊分）', 'タオル・温泉セット', '常備薬', '開店祝い🎁',
-    'エコバッグ（お土産用）', '防寒着（11月の九州は朝晩冷えるで）', '胃袋の空き容量🍚',
+    '着替え（1泊分）', 'タオル・温泉セット', '常備薬', '開店祝い',
+    'エコバッグ（お土産用）', '防寒着（11月の九州は朝晩冷えるで）', '胃袋の空き容量',
   ];
 
   const $ = (s, el = document) => el.querySelector(s);
@@ -70,7 +70,7 @@
     } else {
       const card = $('#login');
       card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
-      const msgs = ['お客さん、合言葉ちがうで！', 'もういっぺん！', 'ほんまにメンバー？🤔'];
+      const msgs = ['お客さん、合言葉ちがうで！', 'もういっぺん！', 'ほんまにメンバー？'];
       $('#gate-msg').textContent = msgs[Math.floor(Math.random() * msgs.length)];
     }
   });
@@ -97,7 +97,21 @@
   }
 
   /* ========= 本編 ========= */
+  function initMenu() {
+    const btn = $('#menu-btn'), menu = $('#menu');
+    const set = open => {
+      btn.setAttribute('aria-expanded', open);
+      btn.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);
+      if (open) { menu.hidden = false; requestAnimationFrame(() => requestAnimationFrame(() => menu.classList.add('show'))); }
+      else { menu.classList.remove('show'); setTimeout(() => { if (!menu.classList.contains('show')) menu.hidden = true; }, 450); }
+    };
+    btn.addEventListener('click', () => set(!btn.classList.contains('open')));
+    $$('.mi', menu).forEach(a => a.addEventListener('click', () => set(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+  }
   function initApp() {
+    initMenu();
     buildMembers();
     buildChecklist();
     countdown(); setInterval(countdown, 1000);
@@ -147,7 +161,7 @@
           </div>
           <div class="member-face member-back">
             <div class="role">${m.role || 'ひとこと'}</div>
-            <p>${m.comment || 'ぶんちゃん開店<br>おめでとう！🎉'}</p>
+            <p>${m.comment || 'ぶんちゃん開店<br>おめでとう！'}</p>
           </div>
         </div>`;
       b.addEventListener('click', () => b.classList.toggle('flipped'));
@@ -164,7 +178,7 @@
     const update = () => {
       const n = CHECKS.filter((_, i) => state[i]).length;
       $('#check-bar').style.width = `${(n / CHECKS.length) * 100}%`;
-      $('#check-count').textContent = `${n} / ${CHECKS.length}${n === CHECKS.length ? ' 準備バッチリ！🎉' : ''}`;
+      $('#check-count').textContent = `${n} / ${CHECKS.length}${n === CHECKS.length ? ' 準備バッチリ！' : ''}`;
       return n === CHECKS.length;
     };
     CHECKS.forEach((t, i) => {
@@ -190,7 +204,7 @@
     const el = $('#countdown');
     if (diff <= 0) {
       el.classList.add('started');
-      $('.cd-label', el).textContent = '🚄 旅、はじまってます！';
+      $('.cd-label', el).textContent = '旅、はじまってます！';
       $('.cd-row', el).hidden = true;
       return;
     }
