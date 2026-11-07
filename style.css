@@ -253,6 +253,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .polaroid:hover{transform:rotate(0) scale(1.05)!important;z-index:2}
 .polaroid img{aspect-ratio:4/3;object-fit:cover;width:100%}
 .polaroid figcaption{font-weight:800;text-align:center;padding-top:6px;font-size:14px}
+.polaroid figcaption small{display:block;font-size:12px;opacity:.7}
 .info-card{background:var(--paper);border:var(--line);border-radius:20px;box-shadow:var(--shadow);padding:20px;width:min(560px,100%)}
 .info-card h3{font-family:var(--head);font-weight:400;color:var(--navy);margin-bottom:8px}
 .info-card dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px}
