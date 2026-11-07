@@ -31,8 +31,8 @@
   <form id="login" class="gate-card" autocomplete="on">
     <img class="gate-logo" src="img/logo.png" alt="大衆食堂ぶんちゃん">
     <p class="gate-lead">合言葉を言うてから入ってや！</p>
-    <label>ID<input id="uid" name="username" autocomplete="username" required></label>
-    <label>PASS<input id="pw" name="password" type="password" autocomplete="current-password" required></label>
+    <label>ID<input id="uid" name="username" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="next" required></label>
+    <label>PASS<input id="pw" name="password" type="password" autocomplete="current-password" enterkeyhint="go" required></label>
     <label class="remember"><input type="checkbox" id="remember" checked><span class="box"></span>ID/PASSを保存する</label>
     <button type="submit" class="btn-pop btn-enter"><svg class="bowl-face" viewBox="0 0 40 40" aria-hidden="true"><g class="bf-steam" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M13 11 q-3 -3 0 -6"/><path d="M20 10 q-3 -3 0 -7"/><path d="M27 11 q-3 -3 0 -6"/></g><path d="M3 17 h34 a17 15 0 0 1 -34 0z" fill="#26357A" stroke="#221E1A" stroke-width="2"/><rect x="14" y="31" width="12" height="4" rx="1.5" fill="#26357A" stroke="#221E1A" stroke-width="2"/><path d="M12 22 q2.5 -3 5 0 M23 22 q2.5 -3 5 0" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="10.5" cy="25.5" r="2.4" fill="#FF8FB1"/><circle cx="29.5" cy="25.5" r="2.4" fill="#FF8FB1"/><path d="M18 25.5 q2 2 4 0" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M26 14 L39 3 M29 15 L40 7" stroke="#E63B2E" stroke-width="2" stroke-linecap="round"/></svg><span>のれんをくぐる！</span></button>
     <p id="gate-msg" role="alert"></p>

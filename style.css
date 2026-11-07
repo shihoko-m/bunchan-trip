@@ -377,3 +377,18 @@ body.menu-open{overflow:hidden}
 .yuko{display:inline-block;margin-top:6px;font-weight:800;background:#FFD9E6;border:2px solid var(--ink);border-radius:10px;padding:2px 10px;transform:rotate(-1deg)}
 .avatar:has(img){width:104px;height:104px;border-width:4px;box-shadow:0 0 0 4px var(--c,#fff),0 0 0 7px var(--ink);background:#fff}
 .thanks{display:inline-block;margin-top:6px;font-weight:800;background:#FFE8A3;border:2px solid var(--ink);border-radius:10px;padding:2px 10px;transform:rotate(1deg)}
+
+/* ===== ログイン画面：スマホのキーボード対策 ===== */
+#gate{height:var(--vvh,100dvh);top:var(--vvt,0px);bottom:auto;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.noren{transition:transform 1s cubic-bezier(.7,-.2,.3,1.2),height .35s ease}
+.panel{transition:padding .35s ease}
+.nc{transition:font-size .35s ease}
+.gate-card{transition:.5s cubic-bezier(.6,-.4,.4,1),margin .35s ease}
+#gate.typing{place-items:start center}
+#gate.typing .noren{height:72px}
+#gate.typing .panel{padding-top:10px;border-bottom-width:6px}
+#gate.typing .nc{font-size:44px}
+#gate.typing .panel::after{display:none}
+#gate.typing .gate-card{margin-top:96px;padding-top:20px;gap:8px}
+#gate.typing .gate-logo{display:none}
+#gate.typing .gate-lead{font-size:13px}

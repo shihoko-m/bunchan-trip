@@ -59,9 +59,33 @@
     }, 1100);
   });
 
+  /* スマホでキーボードが出たら、見えている範囲にフォームを収める */
+  (() => {
+    const gate = $('#gate');
+    const vv = window.visualViewport;
+    const fit = () => {
+      if (!vv) return;
+      gate.style.setProperty('--vvh', `${vv.height}px`);
+      gate.style.setProperty('--vvt', `${vv.offsetTop}px`);
+    };
+    if (vv) { vv.addEventListener('resize', fit); vv.addEventListener('scroll', fit); fit(); }
+    let blurTimer;
+    gate.addEventListener('focusin', e => {
+      if (!e.target.matches('input:not([type=checkbox])')) return;
+      clearTimeout(blurTimer);
+      gate.classList.add('typing');
+      setTimeout(() => e.target.scrollIntoView({ block: 'center', behavior: 'smooth' }), 300);
+    });
+    gate.addEventListener('focusout', () => {
+      blurTimer = setTimeout(() => {
+        if (!gate.contains(document.activeElement) || !document.activeElement.matches('input:not([type=checkbox])')) gate.classList.remove('typing');
+      }, 150);
+    });
+  })();
+
   $('#login').addEventListener('submit', async e => {
     e.preventDefault();
-    const id = $('#uid').value.trim();
+    const id = $('#uid').value.trim().toLowerCase();
     const pw = $('#pw').value;
     if ((await sha256(`${id}:${pw}`)) === CRED_HASH) {
       if ($('#remember').checked) store.set(STORE_KEY, JSON.stringify({ id, pw }));
