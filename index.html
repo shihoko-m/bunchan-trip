@@ -24,8 +24,8 @@
 
 <!-- ===== ログイン（暖簾） ===== -->
 <div id="gate">
-  <div class="noren noren-l"><span>大衆</span></div>
-  <div class="noren noren-r"><span>食堂</span></div>
+  <div class="noren noren-l"><span class="panel"><b class="nc">大</b></span><span class="panel"><b class="nc">衆</b></span></div>
+  <div class="noren noren-r"><span class="panel"><b class="nc">食</b></span><span class="panel"><b class="nc">堂</b></span></div>
   <form id="login" class="gate-card" autocomplete="on">
     <img class="gate-logo" src="img/logo.png" alt="大衆食堂ぶんちゃん">
     <p class="gate-lead">合言葉を言うてから入ってや！</p>
@@ -62,15 +62,18 @@
 
     <div class="hero-inner">
       <p class="hero-date">2026.11.28<small>土</small> → 11.29<small>日</small></p>
-      <h1 class="hero-title">
-        <span class="pop-char">祝</span><span class="pop-char">開</span><span class="pop-char">店</span><span class="pop-char">！</span>
+      <h1 class="hero-title" aria-label="祝開店！">
+        <span class="pop-char">祝</span><span class="pop-char">開</span><span class="pop-char">店</span><span class="pop-char bang">!</span>
+        <svg class="kira kira-l" viewBox="0 0 40 40" aria-hidden="true"><path d="M30 26 L8 8 M34 14 L28 0 M18 32 L0 30" stroke="#221E1A" stroke-width="5" stroke-linecap="round"/></svg>
+        <svg class="kira kira-r" viewBox="0 0 40 40" aria-hidden="true"><path d="M30 26 L8 8 M34 14 L28 0 M18 32 L0 30" stroke="#221E1A" stroke-width="5" stroke-linecap="round"/></svg>
       </h1>
       <div class="hero-logo-wrap">
         <img class="hero-logo" src="img/logo.png" alt="大衆食堂ぶんちゃん">
         <span class="sticker st-1">突撃！</span>
         <span class="sticker st-2">8人で<br>行くで〜</span>
+        <span class="ribbon"><span>大衆食堂ぶんちゃん</span></span>
       </div>
-      <p class="hero-sub">大衆食堂ぶんちゃん<br><b>突撃旅行のしおり</b></p>
+      <p class="hero-sub"><b>突撃旅行のしおり</b></p>
 
       <div class="countdown" id="countdown">
         <p class="cd-label">出発まであと</p>
@@ -97,7 +100,7 @@
       <div class="card reveal"><div class="card-ico">📅</div><h3>日程</h3><p><b>11/28（土）〜 11/29（日）</b><br>1泊2日</p></div>
       <div class="card reveal"><div class="card-ico">🍚</div><h3>目的地</h3><p><b>大衆食堂ぶんちゃん</b><br>開店祝いに突撃！</p></div>
       <div class="card reveal"><div class="card-ico">♨️</div><h3>宿泊地</h3><p><b>別府</b><br>温泉でまったり</p></div>
-      <div class="card reveal"><div class="card-ico">🚄</div><h3>移動</h3><p><b>新幹線</b><br>新大阪 ⇄ 小倉</p></div>
+      <div class="card reveal"><div class="card-ico">🚄🚐</div><h3>移動</h3><p><b>新幹線 ＋ ハイエース</b><br>新大阪 ⇄ 小倉は新幹線<br>九州はレンタカー（10人乗り）</p></div>
     </div>
   </section>
 
@@ -175,19 +178,22 @@
 
     <div class="timeline is-active" data-day="1">
       <div class="tl-line"><div class="tl-fill"></div></div>
-      <div class="tl-item"><time>6:00</time><div class="tl-body"><h4>新大阪駅 集合</h4><p>集合場所は決まり次第お知らせ！<span class="tbd">要確認</span></p></div></div>
+      <div class="tl-item"><time>6:00</time><div class="tl-body"><h4>📍 新大阪駅 改札前に集合</h4><p>遅刻厳禁！6:25発やで〜<span class="tbd">集合時刻 要確認</span></p></div></div>
       <div class="tl-item hl"><time>6:25</time><div class="tl-body"><h4>🌸 さくら741号 出発！</h4><p>新大阪 → 小倉。車内で朝ごはん🍙</p></div></div>
       <div class="tl-item"><time>8:48</time><div class="tl-body"><h4>小倉駅 到着</h4><p>九州上陸！</p></div></div>
-      <div class="tl-item main"><time>??:??</time><div class="tl-body"><h4>🍚 大衆食堂ぶんちゃん 突撃！！</h4><p>開店のお祝いに、みんなで押しかけるで〜！<span class="tbd">時間・移動手段 要確認</span></p></div></div>
-      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>別府へ移動</h4><p><span class="tbd">要確認</span></p></div></div>
-      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>♨️ 別府 チェックイン</h4><p>温泉 → 宴会 → 夜ふかし🌙<span class="tbd">宿名 要確認</span></p></div></div>
+      <div class="tl-item"><time>9:15</time><div class="tl-body"><h4>🚐 レンタカー受け取り</h4><p>10人乗りハイエースで出発！<span class="tbd">時間・店舗 要確認</span></p></div></div>
+      <div class="tl-item"><time>9:30</time><div class="tl-body"><h4>うきは市へドライブ</h4><p>小倉 → うきは市吉井町（目安 約1時間半）</p></div></div>
+      <div class="tl-item main"><time>11:30</time><div class="tl-body"><h4>🍚 大衆食堂ぶんちゃん 突撃！！</h4><p>開店時間に合わせて押しかけるで〜！（時刻は目安）<br>📍うきは市吉井町るり色横丁101</p></div></div>
+      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>🚐 別府へドライブ</h4><p>うきは → 別府（目安 約1時間半）<span class="tbd">出発時間 要確認</span></p></div></div>
+      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>♨️ 別府 チェックイン</h4><p>まずは温泉でひとっ風呂<span class="tbd">宿名 要確認</span></p></div></div>
+      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>🍻 別府で晩ごはん</h4><p><a class="map-btn" href="https://tabelog.com/oita/A4402/A440202/44010364/" target="_blank" rel="noopener">🍽 食べログでお店を見る</a><span class="tbd">時間 要確認</span></p></div></div>
     </div>
 
     <div class="timeline" data-day="2">
       <div class="tl-line"><div class="tl-fill"></div></div>
       <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>朝風呂 &amp; 朝ごはん</h4><p>チェックアウトに遅れんように！</p></div></div>
       <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>別府観光</h4><p>地獄めぐり？温泉はしご？<span class="tbd">要確認</span></p></div></div>
-      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>小倉へ移動</h4><p><span class="tbd">要確認</span></p></div></div>
+      <div class="tl-item"><time>??:??</time><div class="tl-body"><h4>🚐 小倉へドライブ → レンタカー返却</h4><p>別府 → 小倉（目安 約1時間半）。返却は余裕をもって！<span class="tbd">要確認</span></p></div></div>
       <div class="tl-item hl"><time>16:23</time><div class="tl-body"><h4>⚡ のぞみ104号 小倉発</h4><p>九州よ、また来るで！</p></div></div>
       <div class="tl-item"><time>18:37</time><div class="tl-body"><h4>新大阪 到着・解散</h4><p>おつかれさまでした〜！</p></div></div>
     </div>
@@ -213,8 +219,9 @@
       <div class="info-card reveal">
         <h3>お店の情報</h3>
         <dl>
-          <dt>住所</dt><dd><span class="tbd">要確認</span></dd>
-          <dt>営業時間</dt><dd><span class="tbd">要確認</span></dd>
+          <dt>住所</dt><dd>福岡県うきは市吉井町るり色横丁101<br><a class="map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E3%81%86%E3%81%8D%E3%81%AF%E5%B8%82%E5%90%89%E4%BA%95%E7%94%BA%E3%82%8B%E3%82%8A%E8%89%B2%E6%A8%AA%E4%B8%81101" target="_blank" rel="noopener">📍 Googleマップで開く</a></dd>
+          <dt>営業時間</dt><dd>ランチ 11:30〜14:30<br>ディナー 17:00〜22:00</dd>
+          <dt>定休日</dt><dd>月曜日</dd>
           <dt>おすすめ</dt><dd><span class="tbd">要確認</span></dd>
         </dl>
         <p class="note">🎁 開店祝いの段取りもここに書きます</p>
@@ -230,7 +237,7 @@
       <div class="card reveal"><div class="card-ico">🏨</div><h3>お宿</h3><p><span class="tbd">宿名・住所 要確認</span></p></div>
       <div class="card reveal"><div class="card-ico">🔑</div><h3>チェックイン</h3><p><span class="tbd">要確認</span></p></div>
       <div class="card reveal"><div class="card-ico">♨️</div><h3>温泉</h3><p>別府は源泉数・湧出量ともに日本一の温泉地！</p></div>
-      <div class="card reveal"><div class="card-ico">🍻</div><h3>夜ごはん</h3><p><span class="tbd">要確認</span></p></div>
+      <div class="card reveal"><div class="card-ico">🍻</div><h3>夜ごはん</h3><p>別府のお店を予約予定！<br><a class="map-btn" href="https://tabelog.com/oita/A4402/A440202/44010364/" target="_blank" rel="noopener">🍽 食べログで見る</a></p></div>
     </div>
   </section>
 
@@ -250,28 +257,27 @@
 
   <!-- スクロールで走るミニ -->
   <div class="road" aria-hidden="true">
-    <div class="mini mini-red" id="mini-red">
-      <svg viewBox="0 0 120 64" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 38 q0 -8 8 -9 l12 -1 l8 -14 q3 -4 8 -4 h34 q5 0 8 4 l9 14 l6 1 q8 1 8 9 v8 q0 4 -4 4 H18 q-4 0 -4 -4z" fill="#C8102E" stroke="#7a0a1c" stroke-width="2"/>
-        <path d="M40 9 h50 q5 0 7 4 l2 3 H33 l2 -3 q2 -4 5 -4z" fill="#EDE6DA"/>
-        <g fill="#5a3a22"><ellipse cx="45" cy="12" rx="3" ry="1.6"/><ellipse cx="56" cy="13.5" rx="2.6" ry="1.4"/><ellipse cx="66" cy="11.5" rx="3" ry="1.5"/><ellipse cx="77" cy="13" rx="2.6" ry="1.4"/><ellipse cx="87" cy="11.8" rx="2.6" ry="1.4"/></g>
-        <path d="M45 17 h18 v10 H39z M67 17 h19 l6 10 H67z" fill="#9fd3e6"/>
-        <rect x="14" y="40" width="98" height="3" fill="#d9d9d9"/>
-        <circle cx="105" cy="36" r="4" fill="#fff3b0" stroke="#999"/>
-        <circle cx="34" cy="50" r="9" fill="#222"/><circle cx="34" cy="50" r="4" fill="#ddd"/>
-        <circle cx="94" cy="50" r="9" fill="#222"/><circle cx="94" cy="50" r="4" fill="#ddd"/>
+    <div class="mini van" id="mini-red">
+      <svg viewBox="0 0 130 70" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 14 q0 -8 8 -8 h82 q8 0 12 6 l12 20 q4 6 4 12 v10 q0 4 -4 4 H12 q-4 0 -4 -4z" fill="#fdfdfd" stroke="#333" stroke-width="2"/>
+        <path d="M100 12 l14 22 H100z" fill="#9fd3e6" stroke="#333" stroke-width="1.5"/>
+        <g fill="#9fd3e6" stroke="#333" stroke-width="1.5"><rect x="14" y="12" width="18" height="18" rx="3"/><rect x="36" y="12" width="18" height="18" rx="3"/><rect x="58" y="12" width="18" height="18" rx="3"/><rect x="80" y="12" width="16" height="18" rx="3"/></g>
+        <rect x="8" y="38" width="118" height="4" fill="#E63B2E"/>
+        <line x1="77" y1="34" x2="77" y2="56" stroke="#999" stroke-width="1.5"/>
+        <rect x="118" y="46" width="8" height="5" rx="1" fill="#fff3b0" stroke="#999"/>
+        <rect x="10" y="44" width="16" height="9" rx="1" fill="#fff" stroke="#2a7a3a" stroke-width="1.2"/><text x="18" y="51" font-size="7" text-anchor="middle" fill="#2a7a3a" font-family="sans-serif" font-weight="bold">わ</text>
+        <circle cx="30" cy="60" r="9" fill="#222"/><circle cx="30" cy="60" r="4" fill="#ccc"/>
+        <circle cx="104" cy="60" r="9" fill="#222"/><circle cx="104" cy="60" r="4" fill="#ccc"/>
       </svg>
       <span class="mini-smoke"></span>
     </div>
-    <div class="mini" id="mini">
-      <svg viewBox="0 0 120 64" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 38 q0 -8 8 -9 l12 -1 l8 -14 q3 -4 8 -4 h34 q5 0 8 4 l9 14 l6 1 q8 1 8 9 v8 q0 4 -4 4 H18 q-4 0 -4 -4z" fill="#1f5e4a" stroke="#123c2f" stroke-width="2"/>
-        <path d="M42 14 h46 q4 0 6 3 l7 11 H36 l6 -11 q1 -3 0 -3z" fill="#f4efe1"/>
-        <path d="M45 17 h18 v10 H39z M67 17 h19 l6 10 H67z" fill="#9fd3e6"/>
-        <rect x="14" y="40" width="98" height="3" fill="#d9d9d9"/>
-        <circle cx="105" cy="36" r="4" fill="#fff3b0" stroke="#999"/>
-        <circle cx="34" cy="50" r="9" fill="#222"/><circle cx="34" cy="50" r="4" fill="#bbb"/>
-        <circle cx="94" cy="50" r="9" fill="#222"/><circle cx="94" cy="50" r="4" fill="#bbb"/>
+    <div class="mini train-s" id="mini">
+      <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 10 h120 q50 0 70 26 q3 5 -4 6 H6 q-4 0 -4 -4 V14 q0 -4 4 -4z" fill="#EEF4F8" stroke="#1d2a5c" stroke-width="2"/>
+        <path d="M150 14 q22 4 36 20 h-28 q-6 0 -8 -6z" fill="#1d2a5c"/>
+        <rect x="2" y="30" width="190" height="4" fill="#22336e"/><rect x="2" y="35" width="190" height="1.6" fill="#d4a845"/>
+        <g fill="#3b4d8a"><rect x="14" y="16" width="12" height="8" rx="2"/><rect x="32" y="16" width="12" height="8" rx="2"/><rect x="50" y="16" width="12" height="8" rx="2"/><rect x="68" y="16" width="12" height="8" rx="2"/><rect x="86" y="16" width="12" height="8" rx="2"/><rect x="104" y="16" width="12" height="8" rx="2"/><rect x="122" y="16" width="12" height="8" rx="2"/></g>
+        <circle cx="24" cy="45" r="3.5" fill="#333"/><circle cx="38" cy="45" r="3.5" fill="#333"/><circle cx="160" cy="45" r="3.5" fill="#333"/><circle cx="174" cy="45" r="3.5" fill="#333"/>
       </svg>
       <span class="mini-smoke"></span>
     </div>

@@ -53,6 +53,7 @@
     }
     setTimeout(() => {
       $('#loader').classList.add('done');
+      $('#gate').classList.add('go');
       setTimeout(() => $('#loader').remove(), 800);
       if (auto) enter(true);
     }, 1100);
@@ -123,8 +124,8 @@
       setTimeout(() => {
         mini.classList.remove('driveoff');
         $('#mini-red').classList.remove('driveoff');
-        mini.style.transform = 'translateX(-100px)';
-        $('#mini-red').style.transform = 'translateX(-180px)';
+        mini.style.transform = 'translateX(-130px)';
+        $('#mini-red').style.transform = 'translateX(-220px)';
         requestAnimationFrame(() => setTimeout(updateMini, 50));
       }, 1900);
     });
@@ -250,24 +251,24 @@
     train.addEventListener('click', run);
   }
 
-  /* スクロール量に合わせて下の道路をミニが走る */
+  /* スクロール量に合わせて下の道路を新幹線とハイエースが走る */
   let lastY = 0, lastYRed = 0, stopTimer;
   function updateMini() {
     const mini = $('#mini');
     if (mini.classList.contains('driveoff')) return;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const p = max > 0 ? window.scrollY / max : 0;
-    const x = p * (window.innerWidth - 80);
+    const x = 90 + p * (window.innerWidth - 220);
     mini.classList.toggle('flip', window.scrollY < lastY);
     mini.classList.add('moving');
     lastY = window.scrollY;
     mini.style.transform = `translateX(${x}px)`;
-    // 赤ミニは少し遅れて後ろを追いかける
+    // ハイエースは新幹線を少し遅れて追いかける
     const red = $('#mini-red');
     const back = window.scrollY < lastYRed;
     red.classList.toggle('flip', back);
     red.classList.add('moving');
-    red.style.transform = `translateX(${back ? x + 76 : x - 76}px)`;
+    red.style.transform = `translateX(${back ? x + 130 : x - 88}px)`;
     lastYRed = window.scrollY;
     clearTimeout(stopTimer);
     stopTimer = setTimeout(() => { mini.classList.remove('moving'); red.classList.remove('moving'); }, 200);

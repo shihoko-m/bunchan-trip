@@ -37,15 +37,20 @@ button{font:inherit;cursor:pointer;color:inherit}
 
 /* ===== gate ===== */
 #gate{position:fixed;inset:0;z-index:200;display:grid;place-items:center;grid-template-columns:minmax(0,1fr);padding:16px;background:var(--cream) repeating-linear-gradient(45deg,transparent 0 22px,rgba(230,59,46,.06) 22px 44px)}
-.noren{position:absolute;top:0;height:46vh;width:50%;background:var(--navy);display:flex;align-items:flex-start;justify-content:center;padding-top:7vh;color:#fff;font-family:var(--head);font-size:clamp(34px,10vw,90px);letter-spacing:.1em;transition:transform 1s cubic-bezier(.7,-.2,.3,1.2);border-bottom:10px solid var(--red);transform-origin:top center}
-.noren::after{content:"";position:absolute;left:0;right:0;bottom:30%;height:6px;background:repeating-linear-gradient(90deg,#fff 0 6px,transparent 6px 14px);opacity:.4}
-.noren-l{left:0;border-right:3px solid var(--navy-d)}
-.noren-r{right:0;border-left:3px solid var(--navy-d)}
-.noren{animation:sway 4s ease-in-out infinite}
-.noren-r{animation-delay:-2s}
-@keyframes sway{50%{transform:skewX(1.5deg)}}
-#gate.open .noren-l{transform:translateX(-105%) rotate(-8deg);animation:none}
-#gate.open .noren-r{transform:translateX(105%) rotate(8deg);animation:none}
+.noren{position:absolute;top:0;height:46vh;width:50%;display:flex;gap:6px;transition:transform 1s cubic-bezier(.7,-.2,.3,1.2)}
+.panel{position:relative;flex:1;background:var(--navy);border-bottom:10px solid var(--red);display:flex;justify-content:center;padding-top:5vh;transform-origin:top center;animation:sway 3.2s ease-in-out infinite;box-shadow:inset 0 -14px 0 rgba(0,0,0,.12)}
+.noren-l .panel:nth-child(2){animation-delay:-.8s}.noren-r .panel:nth-child(1){animation-delay:-1.6s}.noren-r .panel:nth-child(2){animation-delay:-2.4s}
+.nc{display:block;font-family:var(--head);font-weight:400;color:#fff;line-height:1;font-size:clamp(64px,min(21vw,27vh),230px);text-shadow:.05em .05em 0 var(--red),.1em .1em 0 var(--ink);opacity:0;transform:scale(0) rotate(-25deg)}
+.go .nc{animation:ncIn .8s cubic-bezier(.3,1.9,.5,1) forwards,ncJump 2.6s 2s ease-in-out infinite}
+.noren-l .panel:nth-child(2) .nc{animation-delay:.12s,2.15s}.noren-r .panel:nth-child(1) .nc{animation-delay:.24s,2.3s}.noren-r .panel:nth-child(2) .nc{animation-delay:.36s,2.45s}
+@keyframes ncIn{to{opacity:1;transform:none}}
+@keyframes ncJump{0%,70%,100%{opacity:1;transform:none}78%{opacity:1;transform:translateY(-.12em) scale(1.08,.94)}86%{opacity:1;transform:translateY(0) scale(.95,1.05)}}
+.panel::after{content:"";position:absolute;left:0;right:0;bottom:18%;height:6px;background:repeating-linear-gradient(90deg,#fff 0 6px,transparent 6px 14px);opacity:.4}
+.noren-l{left:0}
+.noren-r{right:0}
+@keyframes sway{0%,100%{transform:rotate(0)}50%{transform:rotate(1.2deg)}}
+#gate.open .noren-l{transform:translateX(-105%) rotate(-8deg)}
+#gate.open .noren-r{transform:translateX(105%) rotate(8deg)}
 #gate.open .gate-card{transform:scale(.6) translateY(40px);opacity:0}
 #gate.open{background:transparent;transition:background .5s .5s}
 #gate.gone{display:none}
@@ -88,20 +93,35 @@ button{font:inherit;cursor:pointer;color:inherit}
 .hero-inner{position:relative;text-align:center;display:grid;justify-items:center;gap:10px}
 .hero-date{font-family:var(--head);background:var(--ink);color:var(--yellow);padding:4px 16px;border-radius:999px;font-size:clamp(14px,3.6vw,18px)}
 .hero-date small{font-size:.7em;margin:0 2px}
-.hero-title{font-family:var(--head);font-weight:400;font-size:clamp(70px,20vw,170px);line-height:1;color:var(--red);-webkit-text-stroke:4px var(--ink);text-shadow:6px 6px 0 var(--ink);display:flex}
+.hero-title{position:relative;align-items:center;font-family:var(--head);font-weight:400;font-size:clamp(62px,19vw,160px);line-height:1;color:var(--red);-webkit-text-stroke:4px var(--ink);text-shadow:6px 6px 0 var(--ink);display:flex}
 .pop-char{display:inline-block;opacity:0;transform:scale(0) rotate(-30deg)}
 .ready .pop-char{animation:popIn .7s cubic-bezier(.3,1.8,.5,1) forwards}
 .ready .pop-char:nth-child(2){animation-delay:.12s}.ready .pop-char:nth-child(3){animation-delay:.24s}.ready .pop-char:nth-child(4){animation-delay:.36s}
+/* 祝開店の3文字をロゴと同じ中心に。「!」は右にはみ出させ、左右対称のキラキラ線で飾る */
+.pop-char.bang{position:absolute;left:100%;top:0;margin-left:.1em}
+.ready .pop-char.bang{animation:popBang .8s .5s cubic-bezier(.3,1.8,.5,1) forwards}
+@keyframes popBang{to{opacity:1;transform:rotate(10deg)}}
+.kira{position:absolute;top:-.3em;width:.42em;height:.42em;opacity:0}
+.kira-l{left:-.62em}
+.kira-r{right:-.95em;top:-.3em;transform:scaleX(-1)}
+.ready .kira{animation:kira 1.6s .7s ease-in-out infinite}
+@keyframes kira{0%,100%{opacity:1;scale:1}50%{opacity:1;scale:1.25}}
 .pop-char:hover{animation:jelly .6s!important;opacity:1;transform:none}
 @keyframes popIn{to{opacity:1;transform:scale(1) rotate(0)}}
 @keyframes jelly{0%{transform:scale(1)}30%{transform:scale(1.25,.75)}50%{transform:scale(.85,1.15)}70%{transform:scale(1.05,.95)}100%{transform:scale(1)}}
-.hero-logo-wrap{position:relative;margin:6px 0}
+.hero-logo-wrap{position:relative;margin:10px 0 26px;display:grid;place-items:center}
+.hero-logo-wrap::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:4px dashed var(--red);animation:spin 18s linear infinite}
+.hero-logo-wrap::after{content:"";position:absolute;inset:-26px;border-radius:50%;background:radial-gradient(circle,#fff 0 58%,transparent 59%);z-index:-1;opacity:.8}
+.ribbon{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%) rotate(-2deg);white-space:nowrap;font-family:var(--head);font-size:clamp(15px,4.2vw,20px);color:#fff;background:var(--red);border:var(--line);padding:4px 18px;box-shadow:3px 3px 0 var(--ink);z-index:2}
+.ribbon::before,.ribbon::after{content:"";position:absolute;top:8px;width:18px;height:100%;background:#b52a20;border:var(--line);z-index:-1}
+.ribbon::before{left:-14px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,40% 50%)}
+.ribbon::after{right:-14px;clip-path:polygon(0 0,100% 0,60% 50%,100% 100%,0 100%)}
 .hero-logo{width:clamp(150px,42vw,230px);border-radius:50%;border:4px solid var(--ink);box-shadow:var(--shadow);transition:transform .4s cubic-bezier(.3,1.8,.5,1);cursor:pointer}
 .hero-logo:hover{transform:rotate(12deg) scale(1.06)}
 .hero-logo.spin{animation:spin .8s cubic-bezier(.3,1.4,.5,1)}
-.sticker{position:absolute;font-family:var(--head);font-size:14px;line-height:1.2;padding:8px 10px;border:var(--line);border-radius:14px;background:#fff;box-shadow:3px 3px 0 var(--ink);white-space:nowrap}
-.st-1{left:-58px;top:10px;background:var(--pink);transform:rotate(-14deg);animation:floaty 3s ease-in-out infinite}
-.st-2{right:-66px;bottom:16px;background:#8EE3C8;transform:rotate(10deg);animation:floaty 3.4s ease-in-out infinite reverse}
+.sticker{position:absolute;z-index:3;font-family:var(--head);font-size:clamp(19px,5.2vw,28px);line-height:1.15;padding:8px 14px;border:var(--line);border-radius:16px;text-align:center;background:#fff;box-shadow:3px 3px 0 var(--ink);white-space:nowrap}
+.st-1{left:-96px;top:-4px;background:var(--pink);transform:rotate(-14deg);animation:floaty 3s ease-in-out infinite}
+.st-2{right:-104px;top:-4px;background:#8EE3C8;transform:rotate(14deg);animation:floaty 3s ease-in-out infinite;animation-delay:-1.5s}
 @keyframes floaty{50%{translate:0 -8px}}
 .hero-sub{font-family:var(--head);font-size:clamp(18px,5vw,26px);line-height:1.4}
 .hero-sub b{font-weight:400;background:var(--paper);padding:0 10px;border:var(--line);border-radius:8px;display:inline-block;transform:rotate(-2deg);margin-top:4px}
@@ -124,7 +144,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .cracker{position:absolute;right:16px;bottom:18px;border:var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;font-size:22px;box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;gap:6px;transition:.15s;z-index:2}
 .cracker span{font-size:12px;font-weight:800}
 .cracker:active{transform:scale(.9)}
-@media (max-width:600px){.flower{opacity:.9}.flower-l{left:-12%}.flower-r{right:-12%}.st-1{left:-36px}.st-2{right:-40px}}
+@media (max-width:600px){.flower{opacity:.9}.flower-l{left:-12%}.flower-r{right:-12%}.st-1{left:-62px}.st-2{right:-70px}}
 
 /* marquee */
 .marquee{background:var(--red);color:#fff;border-block:var(--line);overflow:hidden;padding:10px 0;transform:rotate(-1.5deg);margin:-10px -10px 0;position:relative;z-index:3}
@@ -295,7 +315,12 @@ button{font:inherit;cursor:pointer;color:inherit}
 .mini.moving .mini-smoke{animation:smoke .5s infinite}
 .mini.flip .mini-smoke{left:auto;right:-8px}
 @keyframes smoke{0%{opacity:.8;transform:scale(.5)}100%{opacity:0;transform:translate(-14px,-8px) scale(1.6)}}
-.mini-red{transition:transform .6s cubic-bezier(.3,1.2,.5,1)}
+.mini.train-s{width:120px;bottom:2px}
+.mini.van{width:78px;transition:transform .6s cubic-bezier(.3,1.2,.5,1)}
+.mini.train-s svg{animation:none}
+.mini.train-s .mini-smoke{display:none}
+.map-btn{display:inline-block;margin-top:6px;font-weight:800;font-size:13px;color:#fff;background:var(--navy);border:2px solid var(--ink);border-radius:999px;padding:2px 12px;text-decoration:none;box-shadow:2px 2px 0 var(--ink)}
+.map-btn:active{transform:translate(2px,2px);box-shadow:none}
 .mini.driveoff{transition:transform 1.4s cubic-bezier(.6,-.3,.8,.6)!important}
 
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:400;width:100%;height:100%}
