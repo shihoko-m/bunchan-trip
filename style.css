@@ -106,28 +106,6 @@ button{font:inherit;cursor:pointer;color:inherit}
 .pop-char{display:inline-block;opacity:0;transform:scale(0) rotate(-30deg)}
 .ready .pop-char{animation:popIn .7s cubic-bezier(.3,1.8,.5,1) forwards}
 .ready .pop-char:nth-child(2){animation-delay:.12s}.ready .pop-char:nth-child(3){animation-delay:.24s}.ready .pop-char:nth-child(4){animation-delay:.36s}
-/* 両サイドの花輪（パチンコ屋さん風） */
-.hanawa{position:absolute;top:-.42em;width:1.15em;display:flex;flex-direction:column;align-items:center;pointer-events:none;z-index:-1;opacity:0}
-.hanawa-l{right:100%;margin-right:.08em;transform-origin:bottom center}
-.hanawa-r{left:100%;margin-left:.08em}
-.ready .hanawa-l{animation:hwInL 1s .2s cubic-bezier(.3,1.5,.5,1) forwards}
-.ready .hanawa-r{animation:hwInR 1s .35s cubic-bezier(.3,1.5,.5,1) forwards}
-@keyframes hwInL{0%{opacity:0;transform:translateX(-60%) rotate(-25deg)}100%{opacity:1;transform:none}}
-@keyframes hwInR{0%{opacity:0;transform:translateX(60%) rotate(25deg)}100%{opacity:1;transform:none}}
-.hw-wreath{width:100%;display:block;position:relative;z-index:2;filter:drop-shadow(.03em .03em 0 #221E1A)}
-.hw-wreath *{transform-box:view-box;transform-origin:60px 60px}
-.hw-outer{animation:spin 14s linear infinite}
-.hw-inner{animation:spin 9s linear infinite reverse}
-.hw-spikes{animation:blink 1s steps(2) infinite}
-@keyframes blink{50%{fill:#fff}}
-.hw-tag{position:relative;z-index:2;margin-top:-.08em;writing-mode:vertical-rl;background:#fff;border:2px solid #221E1A;padding:.06em .02em;font-family:var(--body);font-size:.13em;line-height:1.2;-webkit-text-stroke:0;text-shadow:none;color:#221E1A;display:flex;align-items:center;gap:.4em}
-.hw-tag b{font-family:var(--head);font-weight:400;color:#E63B2E;font-size:1.25em;letter-spacing:.1em}
-.hw-tag small{font-size:.8em;font-weight:800}
-.hw-short{display:none}
-.hw-legs{position:absolute;top:.85em;width:80%;height:2.6em;z-index:1}
-.hw-rib1{animation:ribbon 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-.hw-rib2{animation:ribbon 2.2s ease-in-out infinite reverse;transform-box:fill-box;transform-origin:top center}
-@keyframes ribbon{50%{transform:rotate(6deg)}}
 .pop-char:hover{animation:jelly .6s!important;opacity:1;transform:none}
 @keyframes popIn{to{opacity:1;transform:scale(1) rotate(0)}}
 @keyframes jelly{0%{transform:scale(1)}30%{transform:scale(1.25,.75)}50%{transform:scale(.85,1.15)}70%{transform:scale(1.05,.95)}100%{transform:scale(1)}}
@@ -157,7 +135,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .ready .cracker{position:absolute;right:16px;bottom:18px;border:var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;font-size:22px;box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;gap:6px;transition:.15s;z-index:2}
 .cracker span{font-size:12px;font-weight:800}
 .cracker:active{transform:scale(.9)}
-@media (max-width:600px){.st-1{left:-72px;top:-14px}.st-2{right:-76px;top:-14px}.hanawa{width:.98em;top:-.3em}.hanawa-l{margin-right:.04em}.hanawa-r{margin-left:.04em}.hw-tag{font-size:.15em;padding:.1em .02em}.hw-tag small,.hw-long{display:none}.hw-short{display:inline!important}.hw-legs{height:1.9em;top:.7em}}
+@media (max-width:600px){.st-1{left:-72px;top:-14px}.st-2{right:-76px;top:-14px}}
 /* marquee */
 .marquee{background:var(--red);color:#fff;border-block:var(--line);overflow:hidden;padding:10px 0;transform:rotate(-1.5deg);margin:-10px -10px 0;position:relative;z-index:3}
 .marquee-track{display:flex;gap:28px;width:max-content;animation:marq 22s linear infinite;font-family:var(--head);font-size:20px;white-space:nowrap}
