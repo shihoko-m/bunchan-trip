@@ -10,6 +10,7 @@
   const MEMBERS = [
     { name: 'オオニシタク', img: 'img/members/taku.jpg', color: '#E63B2E', role: 'こだわり強め、みかんはお任せ。', comment: 'ケンタロウが大好きなBECHEREEのこだわりオーナー。マリナにみかんの皮をむいてもらうのが日課です。' },
     { name: 'マリナ', img: 'img/members/marina.jpg', color: '#FF8FB1', role: 'チャキチャキ、ときどきうっかり。', comment: 'てきぱき動いて、たまにポロッと抜けている。そんなマリナはただいま新米ママ奮闘中。' },
+    { name: 'タイチャン', img: 'img/members/taichan.jpg', color: '#7CC7F2', baby: true, role: 'ママには甘えん坊。大人には観察眼。', comment: 'ママが見えなくなると、すぐにえーん。でもね、甘えん坊のふりして、大人たちのやることを冷静に見てるのは僕です。' },
     { name: 'ユウコ', img: 'img/members/yuko.jpg', color: '#FFC93C', role: 'ふわっと登場、実は最強。', comment: '金沢在住のフッ軽女子。ふんわりした雰囲気に守ってあげたくなるけれど、いざというとき一番強いのはたぶんこの人。' },
     { name: 'アツシ', img: 'img/members/atsushi.jpg', color: '#2BB3A3', role: '静かに、しっかり、聞いてます。', comment: '自分から前に出てしゃべることは少ないけれど、人の話はよく聞いている。今日も自分のペースでいくおじさん。' },
     { name: 'マユミ', img: 'img/members/mayumi.jpg', color: '#C8102E', role: '山口のドン、初対面でもう友達。', comment: '持ち前のコミュ力で、誰とでもあっという間に打ち解ける。気づけばみんな、マユミの友達。' },
@@ -171,16 +172,18 @@
 
   function buildMembers() {
     const wrap = $('#member-list');
+    let no = 0;
     MEMBERS.forEach((m, i) => {
+      const label = m.baby ? '＋ BABY' : `MEMBER ${String(++no).padStart(2, '0')}`;
       const b = document.createElement('button');
-      b.className = 'member reveal';
+      b.className = m.baby ? 'member member-baby reveal' : 'member reveal';
       b.style.transitionDelay = `${i * 60}ms`;
       b.setAttribute('aria-label', `${m.name}のカード`);
       b.innerHTML = `
         <div class="member-inner">
           <div class="member-face">
             <div class="avatar" style="background:${m.color};--c:${m.color}">${m.img ? `<img src="${m.img}" alt="">` : m.name[0]}</div>
-            <div class="member-no">MEMBER ${String(i + 1).padStart(2, '0')}</div>
+            <div class="member-no">${label}</div>
             <div class="member-name">${m.name}</div>
           </div>
           <div class="member-face member-back" style="--c:${m.color}">

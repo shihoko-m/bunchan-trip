@@ -175,6 +175,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .member-back .member-no{color:#fff;opacity:.85;border-bottom:3px solid var(--c,#fff);padding-bottom:1px}
 .member-back .role{font-family:var(--head);color:var(--yellow);font-size:15px;line-height:1.35;word-break:auto-phrase}
 .member-back p{font-size:12px;line-height:1.6}
+.member-baby .member-face:not(.member-back) .member-no{opacity:1;background:#7CC7F2;color:#fff;border-radius:999px;padding:1px 10px}
 
 /* ===== shinkansen ===== */
 .rail{position:relative;height:110px;margin-bottom:28px;max-width:none!important}
