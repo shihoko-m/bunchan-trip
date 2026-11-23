@@ -405,3 +405,8 @@ body.menu-open{overflow:hidden}
 .hells li::before{content:counter(h);position:absolute;left:8px;top:7px;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--head);font-size:13px;display:grid;place-items:center;border:2px solid var(--ink)}
 .hells li b{display:block;font-family:var(--head);font-weight:400;font-size:15px}
 .small-note{font-size:12px;opacity:.8}
+.thanks-card{position:relative;margin-top:8px;background:#FFF1C2;border:2px solid var(--ink);border-radius:14px;padding:12px 14px 10px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-1deg);display:grid;gap:6px}
+.thanks-card::before{content:"";position:absolute;right:10px;top:-10px;width:22px;height:20px;background:var(--red);border:2px solid var(--ink);clip-path:path("M11 19C4 13 0 10 0 5.5A5.5 5.5 0 0 1 11 3a5.5 5.5 0 0 1 11 2.5C22 10 18 13 11 19z");animation:floaty 2s ease-in-out infinite}
+.thanks-card p{font-size:13px;line-height:1.7}
+.thanks-card .tc-to{font-family:var(--head);font-size:15px;color:var(--red)}
+.thanks-card .tc-from{text-align:right;font-weight:800}
