@@ -400,3 +400,8 @@ body.menu-open{overflow:hidden}
 .owner-face.twist .nejineji{animation:nejiri .8s cubic-bezier(.3,1.6,.5,1)}
 @keyframes nejiri{0%{transform:none}30%{transform:scaleX(.7) rotate(-8deg)}60%{transform:scaleX(1.15) rotate(5deg)}100%{transform:none}}
 .mane{display:inline-block;margin-top:4px;font-size:11px;font-weight:800;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:0 8px;transform:rotate(-2deg)}
+.hells{list-style:none;counter-reset:h;display:grid;gap:6px;margin:8px 0;padding:0}
+.hells li{counter-increment:h;position:relative;padding:6px 10px 6px 38px;background:#fff;border:2px solid var(--ink);border-radius:12px;font-size:13px;line-height:1.5}
+.hells li::before{content:counter(h);position:absolute;left:8px;top:7px;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--head);font-size:13px;display:grid;place-items:center;border:2px solid var(--ink)}
+.hells li b{display:block;font-family:var(--head);font-weight:400;font-size:15px}
+.small-note{font-size:12px;opacity:.8}
