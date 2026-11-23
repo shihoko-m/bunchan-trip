@@ -169,8 +169,35 @@
       }, 650);
     });
   }
+
+  /* 別府マップのピンと数字のカウントアップ */
+  function initBeppu() {
+    const pins = $$('.bm-pin'), infos = $$('.bm-info'), hint = $('.bm-hint');
+    const show = id => {
+      pins.forEach(p => p.classList.toggle('on', p.dataset.pin === id));
+      infos.forEach(i => { i.hidden = i.dataset.info !== id; });
+      if (hint) hint.hidden = true;
+    };
+    pins.forEach(p => {
+      p.addEventListener('click', () => show(p.dataset.pin));
+      p.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(p.dataset.pin); } });
+    });
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      const el = en.target, to = +el.dataset.to, t0 = performance.now(), dur = 1200;
+      const step = now => {
+        const k = Math.min(1, (now - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - k, 3)));
+        el.textContent = v.toLocaleString('ja-JP');
+        if (k < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }), { threshold: .6 });
+    $$('.count').forEach(c => io.observe(c));
+  }
   function initApp() {
     initMenu();
+    initBeppu();
     initLetter();
     buildMembers();
     buildChecklist();
