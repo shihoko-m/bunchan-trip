@@ -396,7 +396,7 @@ body.menu-open{overflow:hidden}
 .tl-item time small{display:block;font-family:var(--body);font-weight:800;font-size:12px;line-height:1.2;opacity:.75}
 .warn{display:inline-block;margin-top:6px;font-weight:800;color:#fff;background:var(--red);border:2px solid var(--ink);border-radius:8px;padding:1px 8px}
 .owner-face{position:relative}
-.owner-face.twist .mane{display:inline-block;margin-top:4px;font-size:11px;font-weight:800;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:0 8px;transform:rotate(-2deg)}
+.mane{display:inline-block;margin-top:4px;font-size:11px;font-weight:800;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:0 8px;transform:rotate(-2deg)}
 .hells{list-style:none;counter-reset:h;display:grid;gap:6px;margin:8px 0;padding:0}
 .hells li{counter-increment:h;position:relative;padding:6px 10px 6px 38px;background:#fff;border:2px solid var(--ink);border-radius:12px;font-size:13px;line-height:1.5}
 .hells li::before{content:counter(h);position:absolute;left:8px;top:7px;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--head);font-size:13px;display:grid;place-items:center;border:2px solid var(--ink)}
