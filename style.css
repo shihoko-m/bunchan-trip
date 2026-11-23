@@ -423,3 +423,26 @@ body.menu-open{overflow:hidden}
   .about-grid .card p{font-size:12.5px;line-height:1.6}
   .about-grid .map-btn{font-size:12px;padding:2px 10px}
 }
+/* お礼の手紙（15:30に開封） */
+.letter{margin-top:8px}
+.envelope{position:relative;width:100%;min-height:150px;border:2px solid var(--ink);border-radius:10px;background:#FFF8E6;box-shadow:3px 3px 0 var(--ink);overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding:0 10px 12px;cursor:default;transform:rotate(-1deg)}
+.envelope::before,.envelope::after{content:"";position:absolute;bottom:0;width:60%;height:70%;background:#FCEBC2;border-top:2px solid var(--ink)}
+.envelope::before{left:0;transform-origin:left bottom;transform:skewY(28deg);border-right:2px solid transparent}
+.envelope::after{right:0;transform-origin:right bottom;transform:skewY(-28deg)}
+.env-flap{position:absolute;left:0;right:0;top:0;height:78px;background:#F7D98B;clip-path:polygon(0 0,100% 0,50% 100%);z-index:1;transform-origin:top center;transition:transform .6s cubic-bezier(.6,-.4,.4,1.4)}
+.env-flap::after{content:"";position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 100%);background:linear-gradient(transparent 96%,var(--ink) 96%)}
+.env-heart{position:absolute;left:50%;top:60px;width:30px;height:28px;margin-left:-15px;z-index:3;background:var(--red);clip-path:path("M15 27C5 19 0 14 0 8A7.5 7.5 0 0 1 15 4a7.5 7.5 0 0 1 15 4C30 14 25 19 15 27z")}
+.env-label{position:relative;z-index:2;display:grid;justify-items:center;gap:2px;text-align:center;background:rgba(255,255,255,.85);border:2px solid var(--ink);border-radius:10px;padding:4px 12px;margin-top:96px}
+.env-label b{font-family:var(--head);font-weight:400;font-size:14px;color:var(--red)}
+.env-msg{font-size:11.5px;font-weight:800}
+.env-count{font-family:var(--head);font-size:13px;color:var(--navy)}
+.letter.locked .env-heart{animation:none}
+.letter.ready .envelope{cursor:pointer;animation:wiggle 1.4s ease-in-out infinite}
+.letter.ready .env-heart{animation:floaty 1.2s ease-in-out infinite}
+.letter.ready .env-msg{color:var(--red)}
+@keyframes wiggle{0%,100%{transform:rotate(-1deg)}25%{transform:rotate(-4deg)}75%{transform:rotate(2deg)}}
+.letter.opening .env-flap{transform:rotateX(180deg) translateY(-2px)}
+.letter.opening .env-heart{opacity:0;transition:opacity .2s}
+.letter.opened .envelope{display:none}
+.letter.opened .thanks-card{animation:letterIn .7s cubic-bezier(.3,1.6,.5,1)}
+@keyframes letterIn{from{opacity:0;transform:translateY(30px) scale(.8) rotate(-6deg)}to{opacity:1;transform:rotate(-1deg)}}

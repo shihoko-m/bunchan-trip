@@ -135,8 +135,43 @@
     $$('.mi', menu).forEach(a => a.addEventListener('click', () => set(false)));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
   }
+  /* ノブさん・マユミさんへの手紙：指定時刻まで開封できない */
+  function initLetter() {
+    const box = $('#letter');
+    if (!box) return;
+    const openAt = new Date(box.dataset.open);
+    const cnt = $('.env-count', box), msg = $('.env-msg', box), env = $('.envelope', box);
+    const tick = () => {
+      const left = openAt - Date.now();
+      if (left <= 0) {
+        box.classList.remove('locked'); box.classList.add('ready');
+        msg.textContent = 'タップで開封！';
+        cnt.textContent = '';
+        env.setAttribute('aria-label', '手紙を開封する');
+        return true;
+      }
+      box.classList.add('locked');
+      const m = Math.ceil(left / 60000), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60), mm = m % 60;
+      cnt.textContent = `開封まで あと ${d ? d + '日 ' : ''}${h}時間 ${mm}分`;
+      return false;
+    };
+    if (!tick()) { const t = setInterval(() => { if (tick()) clearInterval(t); }, 20000); }
+    env.addEventListener('click', e => {
+      if (!box.classList.contains('ready')) {
+        env.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 300 });
+        return;
+      }
+      box.classList.add('opening');
+      burst(e.clientX, e.clientY, 120);
+      setTimeout(() => {
+        box.appendChild($('#letter-body').content.cloneNode(true));
+        box.classList.add('opened');
+      }, 650);
+    });
+  }
   function initApp() {
     initMenu();
+    initLetter();
     buildMembers();
     buildChecklist();
     countdown(); setInterval(countdown, 1000);
