@@ -410,3 +410,16 @@ body.menu-open{overflow:hidden}
 .thanks-card p{font-size:13px;line-height:1.7}
 .thanks-card .tc-to{font-family:var(--head);font-size:15px;color:var(--red)}
 .thanks-card .tc-from{text-align:right;font-weight:800}
+/* 概要・別府カード：スマホでも2カラム */
+@media (max-width:600px){
+  .about-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .about-grid .card{padding:14px 10px;border-radius:16px}
+  .about-grid .card:nth-child(odd):last-child{grid-column:1/-1}
+  .about-grid .card-ico{width:58px;height:58px;margin-bottom:6px}
+  .about-grid .card-ico .ic{width:36px;height:36px}
+  .about-grid .card-ico.duo{width:80px}
+  .about-grid .card-ico.duo .ic{width:30px;height:30px}
+  .about-grid .card h3{font-size:16px}
+  .about-grid .card p{font-size:12.5px;line-height:1.6}
+  .about-grid .map-btn{font-size:12px;padding:2px 10px}
+}
