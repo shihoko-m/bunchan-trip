@@ -180,10 +180,6 @@
     initTrain();
     initMini();
     $('#cracker').addEventListener('click', e => burst(e.clientX, e.clientY, 120));
-    $('#owner-face').addEventListener('click', e => {
-      const el = e.currentTarget;
-      el.classList.remove('twist'); void el.offsetWidth; el.classList.add('twist');
-    });
     $('.hero-logo').addEventListener('click', e => {
       const el = e.currentTarget;
       el.classList.remove('spin'); void el.offsetWidth; el.classList.add('spin');
